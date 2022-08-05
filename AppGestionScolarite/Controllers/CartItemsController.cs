@@ -7,95 +7,93 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppGestionScolarite.Data;
 using AppGestionScolarite.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace AppGestionScolarite.Controllers
 {
-    public class UtilisateursController : Controller
+    public class CartItemsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public UtilisateursController(ApplicationDbContext context)
+        public CartItemsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Utilisateurs
+        // GET: CartItems
         public async Task<IActionResult> Index()
         {
-            
-            var applicationDbContext = _context.Utilisateurs.Include(u => u.Sessions);
+            var applicationDbContext = _context.CartItems.Include(c => c.Module);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Utilisateurs/Details/5
+        // GET: CartItems/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Utilisateurs == null)
+            if (id == null || _context.CartItems == null)
             {
                 return NotFound();
             }
 
-            var utilisateur = await _context.Utilisateurs
-                .Include(u => u.Sessions)
+            var cartItem = await _context.CartItems
+                .Include(c => c.Module)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (utilisateur == null)
+            if (cartItem == null)
             {
                 return NotFound();
             }
 
-            return View(utilisateur);
+            return View(cartItem);
         }
 
-        // GET: Utilisateurs/Create
+        // GET: CartItems/Create
         public IActionResult Create()
         {
-            ViewData["SessionId"] = new SelectList(_context.Sessions, "Id", "Intitule");
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id");
             return View();
         }
 
-        // POST: Utilisateurs/Create
+        // POST: CartItems/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Email,Nom,Prenom,Adresse,Role,DateNaissance,SessionId")] Utilisateur utilisateur)
+        public async Task<IActionResult> Create([Bind("Id,Prix,NbHeures,ModuleId")] CartItem cartItem)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(utilisateur);
+                _context.Add(cartItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SessionId"] = new SelectList(_context.Sessions, "Id", "Id", utilisateur.SessionId);
-            return View(utilisateur);
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", cartItem.ModuleId);
+            return View(cartItem);
         }
 
-        // GET: Utilisateurs/Edit/5
+        // GET: CartItems/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Utilisateurs == null)
+            if (id == null || _context.CartItems == null)
             {
                 return NotFound();
             }
 
-            var utilisateur = await _context.Utilisateurs.FindAsync(id);
-            if (utilisateur == null)
+            var cartItem = await _context.CartItems.FindAsync(id);
+            if (cartItem == null)
             {
                 return NotFound();
             }
-            ViewData["SessionId"] = new SelectList(_context.Sessions, "Id", "Intitule");
-            return View(utilisateur);
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", cartItem.ModuleId);
+            return View(cartItem);
         }
 
-        // POST: Utilisateurs/Edit/5
+        // POST: CartItems/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Nom,Prenom,Adresse,Role,DateNaissance,SessionId")] Utilisateur utilisateur)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Prix,NbHeures,ModuleId")] CartItem cartItem)
         {
-            if (id != utilisateur.Id)
+            if (id != cartItem.Id)
             {
                 return NotFound();
             }
@@ -104,12 +102,12 @@ namespace AppGestionScolarite.Controllers
             {
                 try
                 {
-                    _context.Update(utilisateur);
+                    _context.Update(cartItem);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UtilisateurExists(utilisateur.Id))
+                    if (!CartItemExists(cartItem.Id))
                     {
                         return NotFound();
                     }
@@ -120,58 +118,51 @@ namespace AppGestionScolarite.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SessionId"] = new SelectList(_context.Sessions, "Id", "Id", utilisateur.SessionId);
-            return View(utilisateur);
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", cartItem.ModuleId);
+            return View(cartItem);
         }
 
-        // GET: Utilisateurs/Delete/5
+        // GET: CartItems/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Utilisateurs == null)
+            if (id == null || _context.CartItems == null)
             {
                 return NotFound();
             }
 
-            var utilisateur = await _context.Utilisateurs
-                .Include(u => u.Sessions)
+            var cartItem = await _context.CartItems
+                .Include(c => c.Module)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (utilisateur == null)
+            if (cartItem == null)
             {
                 return NotFound();
             }
 
-            return View(utilisateur);
+            return View(cartItem);
         }
 
-        // POST: Utilisateurs/Delete/5
+        // POST: CartItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Utilisateurs == null)
+            if (_context.CartItems == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Utilisateurs'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.CartItems'  is null.");
             }
-            var utilisateur = await _context.Utilisateurs.FindAsync(id);
-            if (utilisateur != null)
+            var cartItem = await _context.CartItems.FindAsync(id);
+            if (cartItem != null)
             {
-                _context.Utilisateurs.Remove(utilisateur);
+                _context.CartItems.Remove(cartItem);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UtilisateurExists(int id)
+        private bool CartItemExists(int id)
         {
-          return (_context.Utilisateurs?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.CartItems?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-
-        [Authorize]
-        public IActionResult Inscription(int? id)
-        {
-            return RedirectToAction(nameof(Create));
-        }
-        
     }
 }

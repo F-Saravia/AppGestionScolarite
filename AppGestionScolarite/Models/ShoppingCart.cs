@@ -2,9 +2,7 @@
 {
     public class ShoppingCart
     {
-        
-        public int Id { get; set; }
-        
+        public int Id { get; set; }   
         public ICollection<CartItem> CartItems { get; set; }
     }
 }

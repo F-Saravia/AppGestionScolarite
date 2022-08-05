@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k6kRbb/ygGcIyc2Vse50x14UHn76T4X6oMXiAdzFHBU=",
+  "Hash": "wIOQXiGgQ67u2wv6xeSw4vprxgcrvqatJFOrmTk4WMs=",
   "Source": "AppGestionScolarite",
   "BasePath": "_content/AppGestionScolarite",
   "Mode": "Default",
@@ -2210,6 +2210,40 @@
       "OriginalItemSpec": "wwwroot\\photoLogoModule\\vecteezy_school-logo-design-template-vector_7635722_09cec23c-7c56-49e7-ac9d-9f540786686d.jpg"
     },
     {
+      "Identity": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\photoLogoModule\\vecteezy_school-logo-design-template-vector_7635722_512a1863-0fbd-418a-bf26-235ec87027dd.jpg",
+      "SourceId": "AppGestionScolarite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\",
+      "BasePath": "_content/AppGestionScolarite",
+      "RelativePath": "photoLogoModule/vecteezy_school-logo-design-template-vector_7635722_512a1863-0fbd-418a-bf26-235ec87027dd.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\photoLogoModule\\vecteezy_school-logo-design-template-vector_7635722_512a1863-0fbd-418a-bf26-235ec87027dd.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\photoLogoModule\\vecteezy_school-logo-design-template-vector_7635722_823ef5e8-9a9d-42e7-b33e-ce6b1a241aa2.jpg",
+      "SourceId": "AppGestionScolarite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\",
+      "BasePath": "_content/AppGestionScolarite",
+      "RelativePath": "photoLogoModule/vecteezy_school-logo-design-template-vector_7635722_823ef5e8-9a9d-42e7-b33e-ce6b1a241aa2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\photoLogoModule\\vecteezy_school-logo-design-template-vector_7635722_823ef5e8-9a9d-42e7-b33e-ce6b1a241aa2.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\photoLogoModule\\vecteezy_university-academy-school-and-course-logo-design-template_5908808_6bc4eadb-66b0-41b5-8c76-e487379648e5.jpg",
       "SourceId": "AppGestionScolarite",
       "SourceType": "Discovered",
@@ -2446,6 +2480,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\photoLogoParcour\\vecteezy_school-logo-design-template-vector_7635722_12e32a3f-7371-4ca4-847f-39f3fc15ffca.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\photoLogoParcour\\vecteezy_school-logo-design-template-vector_7635722_50221f53-fbe5-48f0-8e7e-d7124d1cf8b9.jpg",
+      "SourceId": "AppGestionScolarite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\",
+      "BasePath": "_content/AppGestionScolarite",
+      "RelativePath": "photoLogoParcour/vecteezy_school-logo-design-template-vector_7635722_50221f53-fbe5-48f0-8e7e-d7124d1cf8b9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\photoLogoParcour\\vecteezy_school-logo-design-template-vector_7635722_50221f53-fbe5-48f0-8e7e-d7124d1cf8b9.jpg"
     },
     {
       "Identity": "C:\\Users\\Ideapad Y700\\Desktop\\S26_ProjetNet\\AppGestionScolarite0408\\AppGestionScolarite\\AppGestionScolarite\\wwwroot\\photoLogoParcour\\vecteezy_school-logo-design-template-vector_7635722_cf45786b-35ec-4b5e-b8d6-da26f8a4cd75.jpg",

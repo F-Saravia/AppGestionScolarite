@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppGestionScolarite.Data;
+using AppGestionScolarite.Models;
 
-namespace AppGestionScolarite.Models
+namespace AppGestionScolarite.Controllers
 {
     public class ShoppingCartsController : Controller
     {
@@ -17,13 +18,26 @@ namespace AppGestionScolarite.Models
         {
             _context = context;
         }
+        //public async Task<IActionResult> AddToCart(int? id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
 
+        //    //var cartItem = await _context.CartItems.FirstOrDefaultAsync(m => m.CartId == id);
+        //    //if (cartItem == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
+        //    //return View(cartItem);
+        //}
         // GET: ShoppingCarts
         public async Task<IActionResult> Index()
         {
-              return _context.ShoppingCarts != null ? 
-                          View(await _context.ShoppingCarts.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.ShoppingCarts'  is null.");
+            return _context.ShoppingCarts != null ?
+                        View(await _context.ShoppingCarts.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.ShoppingCarts'  is null.");
         }
 
         // GET: ShoppingCarts/Details/5
@@ -149,14 +163,14 @@ namespace AppGestionScolarite.Models
             {
                 _context.ShoppingCarts.Remove(shoppingCart);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ShoppingCartExists(int id)
         {
-          return (_context.ShoppingCarts?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.ShoppingCarts?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
