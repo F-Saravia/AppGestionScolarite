@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppGestionScolarite", "AppGestionScolarite\AppGestionScolarite.csproj", "{483F64E5-56B1-448A-90E1-81705C5258D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{483F64E5-56B1-448A-90E1-81705C5258D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{483F64E5-56B1-448A-90E1-81705C5258D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{483F64E5-56B1-448A-90E1-81705C5258D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{483F64E5-56B1-448A-90E1-81705C5258D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E37C3CAA-F034-48BB-B69C-5FD20CC32477}
+	EndGlobalSection
+EndGlobal
