@@ -4,6 +4,7 @@ using AppGestionScolarite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppGestionScolarite.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220805083112_addShoppingCart")]
+    partial class addShoppingCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,32 +23,6 @@ namespace AppGestionScolarite.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("AppGestionScolarite.Models.CartItem", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ModuleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NbHeures")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Prix")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("ShoppingCartId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ModuleId");
-
-                    b.HasIndex("ShoppingCartId");
-
-                    b.ToTable("CartItems");
-                });
 
             modelBuilder.Entity("AppGestionScolarite.Models.Module", b =>
                 {
@@ -136,19 +112,6 @@ namespace AppGestionScolarite.Data.Migrations
                     b.HasIndex("ParcourId");
 
                     b.ToTable("Sessions");
-                });
-
-            modelBuilder.Entity("AppGestionScolarite.Models.ShoppingCart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("AppGestionScolarite.Models.UnitePedagogique", b =>
@@ -422,21 +385,6 @@ namespace AppGestionScolarite.Data.Migrations
                     b.ToTable("ModuleParcour");
                 });
 
-            modelBuilder.Entity("AppGestionScolarite.Models.CartItem", b =>
-                {
-                    b.HasOne("AppGestionScolarite.Models.Module", "Module")
-                        .WithMany()
-                        .HasForeignKey("ModuleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AppGestionScolarite.Models.ShoppingCart", null)
-                        .WithMany("CartItems")
-                        .HasForeignKey("ShoppingCartId");
-
-                    b.Navigation("Module");
-                });
-
             modelBuilder.Entity("AppGestionScolarite.Models.Module", b =>
                 {
                     b.HasOne("AppGestionScolarite.Models.UnitePedagogique", "UnitePedagogique")
@@ -542,11 +490,6 @@ namespace AppGestionScolarite.Data.Migrations
             modelBuilder.Entity("AppGestionScolarite.Models.Session", b =>
                 {
                     b.Navigation("Utilisateurs");
-                });
-
-            modelBuilder.Entity("AppGestionScolarite.Models.ShoppingCart", b =>
-                {
-                    b.Navigation("CartItems");
                 });
 
             modelBuilder.Entity("AppGestionScolarite.Models.UnitePedagogique", b =>

@@ -4,6 +4,7 @@ using AppGestionScolarite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppGestionScolarite.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220805083512_addShoppingCartDbSets")]
+    partial class addShoppingCartDbSets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,14 +38,9 @@ namespace AppGestionScolarite.Data.Migrations
                     b.Property<double>("Prix")
                         .HasColumnType("float");
 
-                    b.Property<int?>("ShoppingCartId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ModuleId");
-
-                    b.HasIndex("ShoppingCartId");
 
                     b.ToTable("CartItems");
                 });
@@ -72,10 +69,15 @@ namespace AppGestionScolarite.Data.Migrations
                     b.Property<string>("Resume")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ShoppingCartId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UnitePedagogiqueId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ShoppingCartId");
 
                     b.HasIndex("UnitePedagogiqueId");
 
@@ -430,15 +432,15 @@ namespace AppGestionScolarite.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AppGestionScolarite.Models.ShoppingCart", null)
-                        .WithMany("CartItems")
-                        .HasForeignKey("ShoppingCartId");
-
                     b.Navigation("Module");
                 });
 
             modelBuilder.Entity("AppGestionScolarite.Models.Module", b =>
                 {
+                    b.HasOne("AppGestionScolarite.Models.ShoppingCart", null)
+                        .WithMany("CartItems")
+                        .HasForeignKey("ShoppingCartId");
+
                     b.HasOne("AppGestionScolarite.Models.UnitePedagogique", "UnitePedagogique")
                         .WithMany("Modules")
                         .HasForeignKey("UnitePedagogiqueId")

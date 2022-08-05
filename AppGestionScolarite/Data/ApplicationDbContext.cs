@@ -17,7 +17,9 @@ namespace AppGestionScolarite.Data
         public DbSet<Parcour> Parcours { get; set; }
         public DbSet<Utilisateur> Utilisateurs { get; set; }
         public DbSet<AppGestionScolarite.Models.UnitePedagogique>? UnitePedagogique { get; set; }
-       
+        public DbSet<AppGestionScolarite.Models.CartItem>? CartItems { get; set; }
+        public DbSet<AppGestionScolarite.Models.ShoppingCart>? ShoppingCarts { get; set; }
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
